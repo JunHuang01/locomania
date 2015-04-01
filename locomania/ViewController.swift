@@ -21,7 +21,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate {
     
     var currTimeSinceLastPush: Int!
     
-    let PUSH_INTERVAL = 15;  //Time in seconds for how long between push
+    let PUSH_INTERVAL = 60*10;  //Time in seconds for how long between push
     
     var pushCount: Int!
     
@@ -77,38 +77,16 @@ class ViewController: UIViewController , CLLocationManagerDelegate {
             self.Timer.text = String(self.currTimeSinceLastPush);
             self.timerUpdate();
         }
-        
-        
     }
     
     func pushLocationToServer(location: CLLocation){
         self.pushCount = self.pushCount + 1;
-        
-        //TO-DO: Change the url here for your own API call
-        self.post(["":""], url: "http://192.168.1.110:8888/pushLatLong/\(self.pushCount)/\(location.coordinate.latitude)/\(location.coordinate.longitude)") { (succeeded: Bool, msg: String) -> () in
-            var alert = UIAlertView(title: "Success!", message: msg, delegate: nil, cancelButtonTitle: "Okay.")
-            if(succeeded) {
-                println("Success push!")
-                //alert.title = "Success!"
-                //alert.message = msg
-            }
-            else {
-                println("Failed push!")
-                //alert.title = "Failed :("
-                //alert.message = msg
-            }
-            
-            /*// Move to the UI thread
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                // Show the alert
-                alert.show()
-            })*/
+        let url = NSURL(string: "http://myurl:8888/pushLatLong/\(self.pushCount)/\(location.coordinate.latitude)/\(location.coordinate.longitude)")
+        let request = NSURLRequest(URL: url!)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+            println(NSString(data: data, encoding: NSUTF8StringEncoding))
         }
-    
     }
-    
-    
-    
     
     /* https://github.com/jquave/SwiftPOSTTutorial */
     func post(params : Dictionary<String, String>, url : String, postCompleted : (succeeded: Bool, msg: String) -> ()) {
