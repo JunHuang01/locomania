@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 import tornado.escape
 import tornado.ioloop
 import tornado.web
@@ -17,21 +17,25 @@ class VersionHandler(tornado.web.RequestHandler):
 
 
 class LatLongRecieverHandler(tornado.web.RequestHandler):
+	
 	def get(self,pushCount,lat,long):
 		print "This is the {0}th push from device, and the data is Latitude: {1}, Longtitude: {2} ".format(pushCount,lat,long)
 		response = {'version':'0.0.2',
 					'last_build': date.today().isoformat()}
 		self.write(response)
 		f = open(LOGFILE, 'w+')
-		f.write(response)
+		time = str(datetime.now())
+		f.write(time + str(response))
 		f.close()
+	
 	def post(self,pushCount,lat,long):
 		print "This is the {0}th push from device, and the data is Latitude: {1}, Longtitude: {2} ".format(pushCount,lat,long)
 		response = {'version':'0.0.3',
 					'last_build': date.today().isoformat()}
 		self.write(response)
 		f = open(LOGFILE, 'w+')
-		f.write(response)
+		time = str(datetime.now())
+		f.write(time + str(response))
 		f.close()
 
 Application = tornado.web.Application([
