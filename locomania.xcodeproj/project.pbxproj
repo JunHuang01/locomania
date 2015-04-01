@@ -13,6 +13,7 @@
 		0E4DD7D31ACB9396002684A0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4DD7D21ACB9396002684A0 /* Images.xcassets */; };
 		0E4DD7D61ACB9396002684A0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E4DD7D41ACB9396002684A0 /* LaunchScreen.xib */; };
 		0E4DD7E21ACB9396002684A0 /* locomaniaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4DD7E11ACB9396002684A0 /* locomaniaTests.swift */; };
+		0E4DD7EC1ACB9FA1002684A0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E4DD7EB1ACB9FA1002684A0 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		0E4DD7DB1ACB9396002684A0 /* locomaniaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = locomaniaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4DD7E01ACB9396002684A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E4DD7E11ACB9396002684A0 /* locomaniaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = locomaniaTests.swift; sourceTree = "<group>"; };
+		0E4DD7EB1ACB9FA1002684A0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E4DD7EC1ACB9FA1002684A0 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +62,7 @@
 		0E4DD7BD1ACB9396002684A0 = {
 			isa = PBXGroup;
 			children = (
+				0E4DD7EB1ACB9FA1002684A0 /* CoreLocation.framework */,
 				0E4DD7C81ACB9396002684A0 /* locomania */,
 				0E4DD7DE1ACB9396002684A0 /* locomaniaTests */,
 				0E4DD7C71ACB9396002684A0 /* Products */,
@@ -161,6 +165,14 @@
 				TargetAttributes = {
 					0E4DD7C51ACB9396002684A0 = {
 						CreatedOnToolsVersion = 6.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					0E4DD7DA1ACB9396002684A0 = {
 						CreatedOnToolsVersion = 6.2;
