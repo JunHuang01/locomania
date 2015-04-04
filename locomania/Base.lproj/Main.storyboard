@@ -52,13 +52,13 @@
                                     <rect key="frame" x="173" y="173" width="135" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetch Timer:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jI-oD-yea">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last fetched time:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jI-oD-yea">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="40" y="228" width="96" height="21"/>
+                                    <rect key="frame" x="40" y="228" width="138" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duF-KG-wvK">
@@ -67,7 +67,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="173" y="228" width="135" height="21"/>
+                                    <rect key="frame" x="40" y="257" width="316" height="21"/>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PushCount : 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nu-n9-qGi">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="40" y="286" width="316" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -78,6 +87,7 @@
                                 <exclude reference="bKp-hI-UNK"/>
                                 <exclude reference="8jI-oD-yea"/>
                                 <exclude reference="duF-KG-wvK"/>
+                                <exclude reference="7Nu-n9-qGi"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -86,13 +96,15 @@
                                 <include reference="bKp-hI-UNK"/>
                                 <include reference="8jI-oD-yea"/>
                                 <include reference="duF-KG-wvK"/>
+                                <include reference="7Nu-n9-qGi"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="LatValue" destination="wBI-6A-ln1" id="TZ1-Jb-wvh"/>
                         <outlet property="LongValue" destination="bKp-hI-UNK" id="THr-zR-V0x"/>
-                        <outlet property="Timer" destination="duF-KG-wvK" id="VwR-kp-IiX"/>
+                        <outlet property="PushCountLabel" destination="7Nu-n9-qGi" id="V5P-iQ-kIV"/>
+                        <outlet property="TimestampOfLastPush" destination="duF-KG-wvK" id="dRq-Ys-Yfp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
