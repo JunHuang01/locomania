@@ -94,7 +94,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate {
     
     func pushLocationToServer(location: CLLocation){
         self.pushCount = self.pushCount + 1;
-        let url = NSURL(string: "http://192.168.1.110:8888/pushLatLong/\(self.pushCount)/\(location.coordinate.latitude)/\(location.coordinate.longitude)")
+        let url = NSURL(string: "http://myurl:8888/pushLatLong/\(self.pushCount)/\(location.coordinate.latitude)/\(location.coordinate.longitude)")
         let request = NSURLRequest(URL: url!)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
             println(NSString(data: data, encoding: NSUTF8StringEncoding))
